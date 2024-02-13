@@ -64,7 +64,7 @@ theme = 'mainroad'
   tags_counter = false # Enable counter for each tag in "Tags" widget
 
 [Params.widgets.social]
-  cached = false # activate cache if true
+  cached = true # activate cache if true
   github = "JIm00000"
 
 [markup]
