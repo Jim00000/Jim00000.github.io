@@ -1,0 +1,20 @@
+pre {
+    background: inherit;
+    border: 1px solid gainsboro;
+    box-shadow: 5px 5px 5px #eee;
+    padding: 1.2em;
+    overflow-x: auto;
+    display: block;
+}
+
+code {
+    background: inherit;
+    font-size: inherit;
+    font-style: normal;
+    font-family:'Fira';
+    overflow-x: auto;
+}
+
+pre code {
+    background: none;
+}

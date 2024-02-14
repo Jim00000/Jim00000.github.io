@@ -31,8 +31,8 @@ theme = 'mainroad'
   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
-  customCSS = ["css/custom.css"] # Include custom CSS files
-  customJS = ["js/custom.js"] # Include custom JS files
+  customCSS = ["css/fonts.css", "css/custom.css"] # Include custom CSS files
+  # customJS = ["js/custom.js"] # Include custom JS files
 
 [Params.style.vars]
   highlightColor = "#e22d30" # Override highlight color
@@ -72,7 +72,6 @@ theme = 'mainroad'
     anchorLineNos = false
     codeFences = true
     guessSyntax = false
-    hl_Lines = ''
     hl_inline = false
     lineAnchors = ''
     lineNoStart = 1

@@ -1,5 +1,5 @@
 +++
-title = '在Hyper-V虛擬機器上安裝安裝Ubuntu'
+title = '在Hyper-V虛擬機器上安裝Ubuntu'
 date = 2024-02-13T14:51:51Z
 draft = true
 authorbox = false
@@ -81,9 +81,9 @@ Ubuntu Server 的安裝介面如下圖，基本上狂按 Enter 鍵使用預設�
 
 ![targets](/images/ubuntu-server-startup.png)
 
-這時候可以輸入您的帳號與密碼登入Ubuntu Server囉~~
+這時候可以輸入您的帳號與密碼登入Ubuntu Server囉~
 
-## ◆ (可選) 於實體電腦端設定SSH免密碼方式連進Ubuntu Server
+## ◆ 在實體電腦端設定SSH免密碼方式連進Ubuntu Server
 
 非必要的功能但是強烈建議您實裝此功能，就由透過於實體電腦端建立好SSH公私鑰與Ubuntu客體端認證，以免除繁雜的輸入密碼方式登入
 
@@ -111,13 +111,13 @@ Ubuntu Server的IP位址獲取方式可以用`ip a`方式得知，上述步驟�
 
 可參照 Github文件[^2] 方式了解如何產生金鑰對，或是參考筆者的方法如下：
 
-```bash
-$ ssh-keygen -t ed25519 -C <your-email-address>
-$ eval "$(ssh-agent -s)"
-$ ssh-add ~/.ssh/id_ed25519
-$ ssh-copy-id -i ~/.ssh/id_ed25519.pub alex@Ubuntu-Server
+```shell {linenos=inline}
+ssh-keygen -t ed25519 -C <your-email-address>
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+ssh-copy-id -i ~/.ssh/id_ed25519.pub alex@Ubuntu-Server
 ```
 
-以後可以免密碼方式SSH連入Ubuntu Server虛擬機
+以後可以免密碼方式SSH連入Ubuntu Server虛擬機~
 
 [^2]: 可參考 [Github Authentication documentation](https://docs.github.com/en/authentication)
