@@ -17,7 +17,7 @@ theme = ['hugo-notice', 'mainroad']
 
 [Params]
   description = "Jim's Blogger" # Site description. Used in meta description
-  copyright = "Jim00000" # Footer copyright holder, otherwise will use site title
+  copyright = "Jim00000 All rights reserved" # Footer copyright holder, otherwise will use site title
   opengraph = true # Enable OpenGraph if true
   schema = true # Enable Schema
   twitter_cards = false # Enable Twitter Cards if true
