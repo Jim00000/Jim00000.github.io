@@ -42,3 +42,7 @@ body {
 .meta__item {
     font-size: medium;
 }
+
+p {
+    font-size: 16px;
+}
