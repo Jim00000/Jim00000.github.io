@@ -55,17 +55,18 @@ tags = ["Hyper-V", "Ubuntu"]
 - 連結虛擬硬碟 : 選建立虛擬硬碟，大小依照個人電腦配置條整
 - 安裝選項 : 選 "可開機 CD/DVD-ROM 安裝作業系統"，映像檔(.iso)選 Ubuntu Server 的 ISO 檔
 
-建立好之後在虛擬機器頁面下可以看到有Ubuntu的名稱，我們還要接著做些設定處裡**安全開機**與**檢查點**(自行選用)
+建立好之後在虛擬機器頁面下可以看到有Ubuntu的名稱，我們還要接著做些設定處裡**安全開機**、**網路介面卡**設定、**檢查點**(自行選用)
 
 在Ubuntu處點選右鍵 ⇨ 點選**設定**
 
 - 硬體 ⇨ 安全性 ⇨ 點選**啟用安全開機** ⇨ 範本選擇**Microsoft UEFI 憑證授權單位**
+- 硬體 ⇨ 網路介面卡 ⇨ 進階功能 ⇨ MAC位址 ⇨ 點選**靜態**
 
 檢查點的功能使用上發現蠻占用空間的，如果有空間使用考量可以考慮關閉此功能
 
 - 管理 ⇨ 檢查點 ⇨ 檢查點類型 ⇨ 取消點選**啟用檢查點**
 
-另外還有**自動選取動作**與**自動停止動作**，控制實體電腦開機/關機時虛擬機器的行為，可依照個人需求調整喔
+**自動選取動作**與**自動停止動作**，控制實體電腦開機/關機時虛擬機器的行為，可依照個人需求調整
 
 ## ◆ 安裝 Ubuntu Server
 
@@ -119,5 +120,20 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub alex@Ubuntu-Server
 ```
 
 以後可以免密碼方式SSH連入Ubuntu Server虛擬機~
+
+在Windows端打開powershell或是git bash，輸入指令: `ssh alex@Ubuntu-Server`確認是否能免密碼登入Ubuntu
+
+## ◆ 為Ubuntu Server設定防火牆 (UFW)
+
+```shell {linenos=inline}
+ufw default deny incoming
+ufw default allow outgoing
+# (可選) 允許SSH通訊
+ufw allow ssh
+# (可選) 允許Samba協議
+ufw allow samba
+```
+
+以上都設定完畢後，瀏覽目前防火牆的狀態： `ufw status numbered`
 
 [^2]: 可參考 [Github Authentication documentation](https://docs.github.com/en/authentication)
