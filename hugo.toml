@@ -1,6 +1,7 @@
 baseURL = 'https://jim00000.github.io/'
-languageCode = 'zh-tw'
 title = "Jim's Blogger"
+languageCode = 'zh-tw'
+defaultContentLanguage = 'zh-tw'
 theme = ['hugo-notice', 'mainroad']
 
 [services]
