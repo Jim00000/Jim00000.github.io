@@ -27,7 +27,7 @@ tags = ["Hyper-V", "Ubuntu"]
 
 ## ◆ 建立適用於Ubuntu的虛擬機器
 
-![targets](/images/search-hyperv-manager.png)
+![targets](/images/search-hyperv-manager.jpg)
 
 ![targets](/images/hyperv-manager-action-view.png)
 
