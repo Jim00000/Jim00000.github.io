@@ -1,5 +1,5 @@
 pre {
-    background: inherit;
+    background: white;
     border: 1px solid gainsboro;
     box-shadow: 5px 5px 5px #eee;
     padding: 1.2em;
@@ -11,10 +11,34 @@ code {
     background: inherit;
     font-size: inherit;
     font-style: normal;
-    font-family:'Fira';
+    font-family: 'Fira';
     overflow-x: auto;
 }
 
 pre code {
     background: none;
+}
+
+.container {
+    max-width: 50vw;
+}
+
+body {
+    background-image: url("/images/background/background.jpg");
+    background-size: 50%;
+}
+
+.footer {
+    background-color: darkgreen;
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.footer__container {
+    background-image: none;
+}
+
+.meta__item {
+    font-size: medium;
 }
