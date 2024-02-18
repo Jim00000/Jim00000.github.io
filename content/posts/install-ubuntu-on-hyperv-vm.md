@@ -139,7 +139,7 @@ ufw allow samba
 ## ◆ 結語
 
 Hyper-V虛擬機安裝Ubuntu到此暫告一段落。另外，使用HyperV虛擬機-Ubuntu Server做開發/測試環境建立等相關文章可參考下列表：
-- 開發超方便! 如何從Windows端vscode遠端至Ubuntu Server虛擬機寫code及開發
-- Ubuntu Server虛擬機沒有圖形介面，要如何查看產生的圖表/多媒體檔案呢? 透過Samba協議與Windows共享資料夾，從Windows端查看!
+- [開發超方便! 如何從Windows端vscode遠端至Ubuntu Server虛擬機寫code及開發](/posts/win-vscode-develop-on-hyperv-ubuntu-server)
+- [Ubuntu Server虛擬機沒有圖形介面，要如何查看產生的圖表/多媒體檔案呢? 透過Samba協議與Windows共享資料夾，從Windows端查看](/posts/samba-protocol-window-ubuntu)
 
 [^2]: 可參考 [Github Authentication documentation](https://docs.github.com/en/authentication)
