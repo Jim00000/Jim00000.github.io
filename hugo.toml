@@ -54,7 +54,7 @@ theme = ['hugo-notice', 'mainroad']
 
 [Params.sidebar]
   home = "right" # Configure layout for home page
-  list = "left"  # Configure layout for list pages
+  list = "right"  # Configure layout for list pages
   single = true # Configure layout for single pages
   # Enable widgets in given order
   widgets = ["categories", "recent", "taglist", "social"]
