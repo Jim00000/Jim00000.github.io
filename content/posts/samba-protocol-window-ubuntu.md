@@ -56,3 +56,13 @@ sudo pdbedit -L -v
 ```shell
 sudo ufw allow samba
 ```
+
+### 從 Windows 端連入 Ubuntu 共享資料夾
+
+打開檔案總管 ⇨ 左版面💻本機點擊滑鼠右鍵 ⇨ 連線網路磁碟機...
+
+![](/images/windows-samba-localmachine-menu.png)
+
+在資料夾處填寫格式如此處：`\\ubuntu-server-ip-address\samba`
+
+![](/images/windows-samba-localmachine-webdisk.png)
