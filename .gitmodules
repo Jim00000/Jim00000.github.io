@@ -1,6 +1,4 @@
-[submodule "themes/mainroad"]
-	path = themes/mainroad
-	url = https://github.com/vimux/mainroad.git
-[submodule "themes/hugo-notice"]
-	path = themes/hugo-notice
-	url = https://github.com/martignoni/hugo-notice.git
+[submodule "themes/LoveIt"]
+	path = themes/LoveIt
+	url = git@github.com:Jim00000/LoveIt.git
+	branch = release-blog

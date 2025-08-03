@@ -1,84 +1,251 @@
-baseURL = 'https://jim00000.github.io/'
-title = "Jim's Blogger"
-languageCode = 'zh-tw'
-defaultContentLanguage = 'zh-tw'
-theme = ['hugo-notice', 'mainroad']
+baseURL                = 'https://jim00000.github.io/'
+languageCode           = 'en'
+languageName           = 'English'
+defaultContentLanguage = 'en'
+title                  = "Jim's Blogger"
+theme                  = 'LoveIt'
+copyright              = '© 2025 Jim00000.  All rights reserved.'
+hasCJKLanguage         = true
+enableRobotsTXT        = true
+enableGitInfo          = true
+enableEmoji            = true
+ignoreErrors           = ['error-remote-getjson', 'error-missing-instagram-accesstoken']
 
-[services]
-  [services.disqus]
-    shortname = "" # Enable Disqus by entering your Disqus shortname
-  [services.googleAnalytics]
-    ID = "" # Enable Google Analytics by entering your tracking ID
+[pagination]
+    disableAliases = false
+    pagerSize = 10
+    path = "page"
 
-[Author] # Used in authorbox
-  name = "Jim00000"
-  # bio = "Jim00000's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
-  # avatar = "img/avatar.png"
+[menu]
+    [[menu.main]]
+        weight = 1
+        identifier = 'posts'
+        pre = ''
+        post = ''
+        name = '文章'
+        url = '/posts/'
+        title = ''
+    [[menu.main]]
+        weight = 2
+        identifier = 'tags'
+        pre = ''
+        post = ''
+        name = '標籤'
+        url = '/tags/'
+        title = ''
+    [[menu.main]]
+        weight = 3
+        identifier = 'categories'
+        pre = ''
+        post = ''
+        name = '分類'
+        url = '/categories/'
+        title = ''
 
-[Params]
-  description = "Jim's Blogger" # Site description. Used in meta description
-  copyright = "Jim00000 All rights reserved" # Footer copyright holder, otherwise will use site title
-  opengraph = true # Enable OpenGraph if true
-  schema = true # Enable Schema
-  twitter_cards = false # Enable Twitter Cards if true
-  readmore = true # Show "Read more" button in list if true
-  authorbox = false # Show authorbox at bottom of pages if true
-  toc = false # Enable Table of Contents
-  pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
-  post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
-  mainSections = ["posts", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
-  dateformat = "2006-01-02" # Change the format of dates
-  mathjax = true # Enable MathJax
-  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
-  mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
-  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
-  customCSS = ["css/fonts.css", "css/custom.css", "css/notice.css"] # Include custom CSS files
-  # customJS = ["js/custom.js"] # Include custom JS files
+[params]
+    defaultTheme = 'auto'
+    gitRepo = 'https://github.com/Jim00000'
+    fingerprint = ''
+    dateFormat = '2006-01-02'
+    title = ''
+    description = ''
+    images = []
 
-[Params.style.vars]
-  highlightColor = "#e22d30" # Override highlight color
+    [params.author]
+        name = 'Jim00000'
+        email = ''
+        link = ''
 
-  # Override font-family sets
-  # Take care of different quotes OR escaping symbols in these params if necessary
-  fontFamilyPrimary = "'Open Sans', Helvetica, Arial, sans-serif"
-  # Secondary font-family set responsible for pre, code, kbd, and samp tags font
-  fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+    [params.header]
+        desktopMode = 'fixed'
+        mobileMode = 'auto'
 
-[Params.logo]
-  # image = "img/placeholder.png" # Logo image. Path relative to "static"
-  title = "Jim's Blogger" # Logo title, otherwise will use site title
-  subtitle = "Never too old to learn" # Logo subtitle
+        [params.header.title]
+            logo = ''
+            name = "技術隨筆"
+            pre = ''
+            post = ''
+            typeit = false
 
-[Params.thumbnail]
-  visibility = ["list", "post"] # Control thumbnail visibility
+    [params.footer]
+        enable = true
+        custom = ''
+        hugo = true
+        copyright = true
+        author = true
+        since = 2025
+        license = 'All rights reserved.'
 
-[Params.sidebar]
-  home = "right" # Configure layout for home page
-  list = "right"  # Configure layout for list pages
-  single = true # Configure layout for single pages
-  # Enable widgets in given order
-  widgets = ["categories", "recent", "taglist", "social"]
+    [params.home]
+    rss = 10
 
-[Params.widgets]
-  recent_num = 5 # Set the number of articles in the "Recent articles" widget
-  categories_counter = false # Enable counter for each category in "Categories" widget
-  tags_counter = false # Enable counter for each tag in "Tags" widget
+        [params.home.profile]
+            enable = true
+            gravatarEmail = ''
+            avatarURL = ''
+            title = ''
+            subtitle = 'It is never too late to learn'
+            typeit = true
+            social = true
+            disclaimer = ''
 
-[Params.widgets.social]
-  cached = true # activate cache if true
-  github = "JIm00000"
+        [params.home.posts]
+            enable = true
+            paginate = 6
+    
+    [params.social]
+        GitHub = 'Jim00000'
+
+    [params.section]
+        paginate = 20
+        dateFormat = "01-02"
+        rss = 10
+
+    [params.list]
+        paginate = 20
+        dateFormat = "01-02"
+        rss = 10
+
+    [params.app]
+        title = "Jim's Blogger"
+        noFavicon = false
+        svgFavicon = ''
+        themeColor = "#ffffff"
+        iconColor = "#5bbad5"
+        tileColor = "#da532c"
+
+    [params.search]
+        enable = true
+        type = 'algolia'
+        contentLength = 4000
+        placeholder = ''
+        maxResultLength = 10
+        snippetLength = 30
+        highlightTag = 'em'
+        absoluteURL = false
+
+        [params.search.algolia]
+            index = ''
+            appID = ''
+            searchKey = ''
+
+    [params.page]
+        hiddenFromHomePage = false
+        hiddenFromSearch = false
+        twemoji = false
+        lightgallery = false
+        ruby = true
+        fraction = true
+        fontawesome = true
+        linkToMarkdown = true
+        rssFullText = false
+    
+        [params.page.toc]
+            enable = true
+            keepStatic = false
+            auto = true
+
+        [params.page.code]
+            copy = true
+            maxShownLines = 50
+    
+        [params.page.math]
+            enable = false
+            inlineLeftDelimiter = ""
+            inlineRightDelimiter = ""
+            blockLeftDelimiter = ""
+            blockRightDelimiter = ""
+            copyTex = true
+            mhchem = true
+
+        [params.page.mapbox]
+            accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
+            lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
+            darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
+            navigation = true
+            geolocate = true
+            scale = true
+            fullscreen = true
+
+        [params.page.share]
+            enable = false
+            Twitter = true
+            Facebook = true
+            Linkedin = false
+            Whatsapp = false
+            Pinterest = false
+            Tumblr = false
+            HackerNews = true
+            Reddit = false
+            VK = false
+            Buffer = false
+            Xing = false
+            Line = true
+            Instapaper = false
+            Pocket = false
+            Flipboard = false
+            Weibo = true
+            Blogger = false
+            Baidu = false
+            Odnoklassniki = false
+            Evernote = false
+            Skype = false
+            Trello = false
+            Mix = false
+
+    [params.cookieconsent]
+        enable = false
+
+        [params.cookieconsent.content]
+            message = ''
+            dismiss = ''
+            link = ''
 
 [markup]
-  [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = false
-    hl_inline = false
-    lineAnchors = ''
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    noHl = false
-    style = 'vs'
-    tabWidth = 4
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = true
+        lineNos = true
+        lineNumbersInTable = true
+        noClasses = false
+  
+    [markup.goldmark]
+        [markup.goldmark.extensions]
+            definitionList = true
+            footnote = true
+            linkify = true
+            strikethrough = true
+            table = true
+            taskList = true
+            typographer = true
+
+    [markup.goldmark.renderer]
+        unsafe = true
+  
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 6
+
+[sitemap]
+    changefreq = "weekly"
+    filename = "sitemap.xml"
+    priority = 0.5
+
+[permalinks]
+    posts = ":filename"
+
+[mediaTypes]
+    [mediaTypes."text/plain"]
+        suffixes = ["md"]
+
+[outputFormats.MarkDown]
+    mediaType = "text/plain"
+    isPlainText = true
+    isHTML = false
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+    page = ["HTML", "MarkDown"]
+    section = ["HTML", "RSS"]
+    taxonomy = ["HTML", "RSS"]
+    taxonomyTerm = ["HTML"]
