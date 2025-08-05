@@ -300,7 +300,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DART_SASS_VERSION: 1.89.2
-      HUGO_VERSION: 0.145.0
+      HUGO_VERSION: 0.148.0
       HUGO_ENVIRONMENT: production
       TZ: America/Los_Angeles
     steps:
@@ -366,6 +366,43 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 ```
+
+{{< admonition tip "設定部屬目標分支" >}}
+
+在 GitHub Actions 的 workflow 中，你可以透過 **branches** 設定觸發條件，指定當某個分支有推送時就執行部屬流程。
+
+例如，將目標分支改為 **master**：
+
+```yaml {linenos=false}
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+      - master
+```
+
+這代表：只要推送更新到 master 分支，就會觸發自動建置與部屬程序。
+
+{{< /admonition >}}
+
+{{< admonition tip "設定 Hugo 的部署版本" >}}
+
+在 GitHub Actions 的 workflow 中，可以透過 `env` 區塊設定 **HUGO_VERSION**，以指定建置時所使用的 Hugo 版本。這在面對主題相容性、特定功能需求或版本 bug 時特別有用。
+
+例如，設定 Hugo 為 **0.148.0**：
+
+```yaml {linenos=false}
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # ...
+      HUGO_VERSION: 0.148.0
+```
+
+這樣可以確保 GitHub Actions 部署流程使用你指定的版本，避免因 Hugo 更新而造成建置差異或失敗。
+建議定期確認你的佈景主題或插件是否支援最新 Hugo 版本，並依照需求調整設定。
+
+{{< /admonition >}}
 
 當你將這份設定檔加入並推送到 GitHub 上，GitHub Actions 就會在每次推送到指定分支後觸發建置程序，自動產出網頁並部署到 GitHub Pages。
 
