@@ -3,7 +3,7 @@ title       = 'Hugo 架站指南：快速打造靜態個人網站'
 date        = 2025-08-02T22:57:51+08:00
 draft       = true
 author      = 'Jim00000'
-tags        = ['blogger', 'hugo']
+tags        = ['Hugo', 'Blog', '教學']
 categories  = ['部落格']
 +++
 
@@ -84,7 +84,7 @@ hugo new site blog
 cd blog
 git init
 git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/hugo-PaperMod
-git serve
+hugo serve
 ```
 
 執行上述指令後，你應該會在主控台看到類似以下的輸出：
@@ -116,11 +116,262 @@ Press Ctrl+C to stop
 👉 想了解完整設定項目，可參考 [Hugo All Settings 官方文件](https://gohugo.io/configuration/all/)。
 Hugo 提供高度彈性的設定方式，所有可調整的參數都已在官方文件中詳細列出。
 
-以下列出幾項最基本且必須的設定項目：
+以下是幾個基本且必須的設定項目：
 
-- `baseURL`: 網站的網址（例如 https://myblog.com/）
+- `baseURL`: 網站的網址， 例如 https://jim00000.github.io/
 - `languageCode`: 網站的語言代碼（如 zh-tw）
 - `title`: 網站標題，會顯示在瀏覽器分頁與搜尋結果中
 - `theme`: 所使用的佈景主題名稱（如 hugo-PaperMod）
 
+以下是設定檔的範例：
 
+```toml
+baseURL       =   'https://mysite.org/'
+languageCode  =   'en-us'
+title         =   '我的網站'
+theme         =   'hugo-PaperMod' 
+```
+
+其他佈景主題相關的設定項目，請參考所使用主題的官方文件以獲得詳細說明。
+
+## 4 新增文章
+
+在 Hugo 中，網站的文章通常儲存在 `content` 目錄下，並採用 Markdown 格式撰寫。Hugo 會自動將這些 Markdown 檔案轉換為 HTML，讓瀏覽器能夠正確呈現內容。
+
+
+你可以使用以下指令來新增文章。例如，建立一篇名為 first-post 的文章：
+
+```bash
+hugo new content content/posts/first-post.md
+```
+
+建立後，系統會自動產生對應的 Markdown 檔案。你可以打開它並開始編寫文章內容。
+
+### 4.1 文章格式
+
+每篇文章的開頭都需加入一段 metadata（中繼資料），用以描述文章的標題、建立時間、是否為草稿，以及所屬的分類與標籤等。這段設定通常採用 TOML 或 YAML 格式，範例如下：
+
+```toml
++++
+title = 'First Post'
+date = 2025-08-05T00:00:00+00:00
+draft = true
++++
+```
+
+這段中繼資料稱為 [Front Matter](https://gohugo.io/content-management/front-matter/)，是 Hugo 用來解析文章屬性的標準格式。
+若要進一步設定分類（categories）與標籤（tags），可如下擴充：
+
+```toml
++++
+title = 'First Post'
+date = 2025-08-05T00:00:00+00:00
+draft = true
+categories = ['技術筆記']
+tags = ['Hugo', 'Blog', '教學']
++++
+```
+
+列出重要且基本的必填欄位項目：
+
+- date: 文章建立時間
+- draft: 是否為草稿，若為true，文章將不會顯示在正式網站中
+- title: 文章標題
+
+以下是補充欄位項目:
+
+- author: 指定作者名稱，若網站支援多作者或要顯示作者資訊時會用到
+- lastmod: 設定文章最近修改時間
+- tags: 設定文章標籤，用來描述文章主題、方便搜尋與過濾
+- categories: 設定文章所屬分類，有助於內容分類與導覽
+
+
+### 4.2 摘要預覽設定
+
+若希望在文章列表中只顯示部分內容作為摘要，可以在文章中插入 `<!-- more -->` 標記。這個標記會告訴 Hugo 在那個位置截斷內容，只顯示前面的部分作為預覽。
+
+例如：
+
+```markdown
+這是文章的開場介紹，非常吸引人！
+
+<!-- more -->
+
+接著進入更深入的內容，例如程式碼範例或使用心得...
+```
+
+在使用這個標記後，訪客在列表中只會看到 `<!-- more -->` 之前的文字，並會看到「**閱讀更多**」或是「**Read More**」的連結導向完整文章。
+
+### 4.3 文章內容
+
+Hugo 採用 Markdown 格式撰寫文章，語法簡單、彈性高，非常適合用於技術文件與一般內容編輯。由於 Markdown 是廣泛使用的標記語言，這裡不再進一步說明。
+
+撰寫時可搭配以下線上編輯器，以提升編輯效率與預覽體驗：
+
+- [HackMD](https://hackmd.io/)
+- [StackEdit](https://stackedit.io/)
+
+若已啟用 Hugo，本地編輯文章時可即時預覽修改內容，提升撰寫效率與反饋速度。
+
+## 5 公開網站
+
+當你完成網站內容後，下一步就是將它正式上線。以下是幾種常見的部署方式：
+
+- 自行架設本機伺服器：適合進階使用者，可完全掌控環境設定
+- 租用雲端或實體主機：使用雲端主機提供商服務
+- 使用 GitHub Pages[^2] 託管靜態網頁：免費且方便，適合個人或小型專案
+
+[^2]: GitHub Pages 提供免費的靜態網站託管服務，能直接將原始碼儲存庫轉換為網頁。
+
+若你希望降低成本、簡化維護流程，推薦選擇 GitHub Pages 來架設網站。它不僅穩定可靠，也與 Hugo 的建置流程高度相容。
+
+在本教學中，我們將以 GitHub Pages 為例，逐步示範如何部署並公開你的 Hugo 網站。
+
+### 5.1 部署 Hugo 到 GitHub Pages
+
+在開始部署之前，先簡要了解 GitHub 提供的兩項主要服務，確保你知道使用的服務：
+
+- 託管 Hugo 所產生的靜態網頁：公開的 `public` 資料夾內容，即網站最終呈現的 HTML 等檔案。
+- 託管網站原始碼與設定檔：包含文章 Markdown 原稿、Hugo 配置檔案、佈景主題及任何客製化的設計。
+
+值得注意的是，這些資料將會完全公開，意味著你的個人網站內容將能被任何人瀏覽。
+
+{{< admonition info "事先準備" >}}
+在開始操作之前，請先確認你已擁有可用的 GitHub 帳號。
+{{< /admonition >}}
+
+### 5.2 建立 GitHub 儲存庫
+
+根據 GitHub Pages 的靜態網頁託管規則，若你要建立「使用者或組織網站」，儲存庫名稱必須為：`<owner>.github.io`
+
+其中 `<owner>` 是你的 GitHub 帳號 ID。網站的預設網址將會是：`http(s)://<owner>.github.io`
+
+
+{{< admonition note "調整 Hugo 設定" >}}
+
+請記得在 `hugo.toml` 中設定正確的 `baseURL`，例如：
+
+```toml
+baseURL = "https://<owner>.github.io/"
+```
+
+這樣 Hugo 產生的連結才會正確對應到 GitHub Pages 的網址。
+
+{{< /admonition >}}
+
+### 5.3 使用 GitHub Actions 自動部署
+
+為了讓 Hugo 網站在每次推送新內容後能自動部署，可以使用 GitHub Actions 進行自動化建置。請在 Hugo 專案的根目錄下新增 .github/workflows/hugo.yaml 檔案，內容如下範例：
+
+```yaml
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Deploy Hugo site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Default to bash
+defaults:
+  run:
+    # GitHub-hosted runners automatically enable `set -eo pipefail` for Bash shells.
+    shell: bash
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DART_SASS_VERSION: 1.89.2
+      HUGO_VERSION: 0.145.0
+      HUGO_ENVIRONMENT: production
+      TZ: America/Los_Angeles
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Install Dart Sass
+        run: |
+          wget -O ${{ runner.temp }}/dart-sass.tar.gz https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz
+          tar -xf ${{ runner.temp }}/dart-sass.tar.gz --directory ${{ runner.temp }}
+          mv ${{ runner.temp }}/dart-sass/ /usr/local/bin
+          echo "/usr/local/bin/dart-sass" >> $GITHUB_PATH
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Install Node.js dependencies
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Cache Restore
+        id: cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ${{ runner.temp }}/hugo_cache
+          key: hugo-${{ github.run_id }}
+          restore-keys:
+            hugo-
+      - name: Configure Git
+        run: git config core.quotepath false
+      - name: Build with Hugo
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --cacheDir "${{ runner.temp }}/hugo_cache"
+      - name: Cache Save
+        id: cache-save
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ${{ runner.temp }}/hugo_cache
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+當你將這份設定檔加入並推送到 GitHub 上，GitHub Actions 就會在每次推送到指定分支後觸發建置程序，自動產出網頁並部署到 GitHub Pages。
+
+透過整合 GitHub Actions 自動化部署流程，Hugo 網站的維護與發佈不再繁瑣。每次推送新內容，只需專注創作，GitHub 就會在背後默默完成建置與部署。
+這不僅提升開發效率，也讓網站更新變得簡單流暢。
+
+## 6 小結
+
+從初始安裝、內容撰寫，到 GitHub Actions 自動部署，本指南完整帶你踏上 Hugo 架站之旅。無論是個人部落格、作品集，或技術筆記，只要掌握好 Hugo 的靈活架構與 GitHub 的強大生態系，就能打造一個快速、輕量又具高度自訂性的網站。
