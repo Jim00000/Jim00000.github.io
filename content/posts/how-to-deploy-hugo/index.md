@@ -89,7 +89,7 @@ hugo serve
 
 執行上述指令後，你應該會在主控台看到類似以下的輸出：
 
-```text {linenos=false}
+{{< infobox-pre >}}
 …
                    | EN
 -------------------+-----
@@ -107,7 +107,7 @@ Serving pages from disk
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
-```
+{{< /infobox-pre >}}
 
 這代表你已成功啟動 Hugo 的開發伺服器，可在瀏覽器中預覽網站，網址為 [http://localhost:1313/](http://localhost:1313/)。後續便能開始撰寫內容並自訂外觀！
 
