@@ -291,7 +291,7 @@ Jenkins 會根據作業系統的語言設定，自動選擇預設的介面語言
 
 建立 Freestyle 專案後，請依照以下步驟設定建置流程：
 
-1. 進入專案頁面，點選 `Configure`
+1. 進入專案頁面，點選 `Configure` 進入設定畫面
 2. 找到 `Build Steps` 區塊，點選 `Add build step` → 選擇 `Execute shell`
 3. 在指令欄位中輸入你要執行的 Shell 指令，例如： 
 
@@ -315,3 +315,46 @@ echo "Hello Jenkins!"
 在 Shell 腳本中，使用 `set -x` 可以開啟指令追蹤，讓每一行指令在執行前都顯示在 Console Output 中，方便除錯。如果你希望輸出更乾淨、只顯示執行結果，可以使用 `set +x` 來關閉指令提示。
 
 {{< /admonition >}}
+
+### 4.2 實戰教學：Pipeline 專案範例
+
+建立 Pipeline 專案後，請依照以下步驟設定建置流程：
+
+1. 進入專案頁面，點選 `Configure` 進入設定畫面
+2. 找到 `Pipeline` 區塊， 將 `Definition` 設定為 `Pipeline script`
+3. 在 `Script` 欄位撰寫 Pipeline 定義。建置流程可依需求切分為多個階段（`stages`），並指定執行的代理節點（`agent`）
+
+以下為一個基本的建置流程範例，涵蓋下載、建置、測試與發佈四個階段：
+
+```text
+pipeline {
+    agent any
+
+    stages {
+        stage('Download') {
+          steps {
+            // add download process ...
+            echo 'download project'
+          }
+        }
+        stage('Build') {
+            steps {
+                // add build process ...
+                echo 'build project'
+            }
+        }
+        stage('Test') {
+            steps {
+                // add test process ...
+                echo 'test project'
+            }
+        }
+        stage('Release') {
+            steps {
+                // add release process ...
+                echo 'release project'
+            }
+        }
+    }
+}
+```
