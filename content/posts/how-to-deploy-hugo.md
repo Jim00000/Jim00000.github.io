@@ -15,7 +15,7 @@ categories  = ['部落格']
 
 首先，請開啟 Windows 終端機。你可以透過以下任一方式：
 
-- 在工作列的 **開始** 🪟 圖示上按右鍵，選擇「終端機」
+- 在工作列的 **開始** 圖示上按右鍵，選擇「終端機」
 - 或是同時按下 **Win + R** 鍵，輸入 `powershell` 並按下 Enter 鍵
 
 接著，輸入以下指令以安裝 WSL 2 及預設的 Ubuntu 發行版：
@@ -37,8 +37,8 @@ wsl --install
 sudo apt install hugo
 ```
 
-- ✅ 安裝快速、操作簡便
-- ❌ 套件庫中的版本通常較舊，可能不支援部分佈景主題
+- 安裝快速、操作簡便
+- 套件庫中的版本通常較舊，可能不支援部分佈景主題
 
 ### 方法二：使用 Snap 套件安裝
 
@@ -46,15 +46,15 @@ sudo apt install hugo
 sudo snap install hugo
 ```
 
-- ✅ 安裝快速、可取得最新版
-- ❌ 某些佈景主題可能不相容最新版 Hugo
+- 安裝快速、可取得最新版
+- 某些佈景主題可能不相容最新版 Hugo
 
 ### 方法三：從 GitHub Release 手動安裝
 
-👉 [前往 Hugo GitHub Release 頁面](https://github.com/gohugoio/hugo/releases)
+[前往 Hugo GitHub Release 頁面](https://github.com/gohugoio/hugo/releases)
 
-- ✅ 可依佈景主題需求選擇特定版本
-- ❌ 安裝流程較繁瑣，需手動下載與設定
+- 可依佈景主題需求選擇特定版本
+- 安裝流程較繁瑣，需手動下載與設定
 
 建議依據所使用的佈景主題之系統需求選擇 Hugo 版本。若佈景主題需要特定版本支援，請採用方法三進行安裝。
 
@@ -113,7 +113,7 @@ Press Ctrl+C to stop
 
 ### 3.1 配置hugo.toml
 
-👉 想了解完整設定項目，可參考 [Hugo All Settings 官方文件](https://gohugo.io/configuration/all/)。
+想了解完整設定項目，可參考 [Hugo All Settings 官方文件](https://gohugo.io/configuration/all/)。
 Hugo 提供高度彈性的設定方式，所有可調整的參數都已在官方文件中詳細列出。
 
 以下是幾個基本且必須的設定項目：
